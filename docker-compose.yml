@@ -2,7 +2,7 @@ version: '3.8'
 services:
 
   # imagem openffapi
-  micro_01:
+  openffapi:
     build:
       args:
         user: tss

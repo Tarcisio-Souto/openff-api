@@ -5,10 +5,14 @@ namespace App\Models;
 use App\Enums\TypeOfStatusEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Products extends Model
 {
     use HasFactory;
+
+    protected $table = 'foodfacts';
+    public $timestamps = false;
 
     protected $fillable = 
     [
@@ -38,7 +42,8 @@ class Products extends Model
 
     ];
 
-    protected $status = [TypeOfStatusEnum::class];
+    //protected $status = [TypeOfStatusEnum::class];
+
 
 
 

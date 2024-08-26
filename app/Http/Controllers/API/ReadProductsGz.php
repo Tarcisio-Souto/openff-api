@@ -16,20 +16,20 @@ class ReadProductsGz extends Controller
         $arr_json_products = 
         [
             'products_json_01' => 'https://challenges.coode.sh/food/data/json/products_01.json.gz',
-            /*'products_json_02' => "https://challenges.coode.sh/food/data/json/products_02.json.gz",
+            'products_json_02' => "https://challenges.coode.sh/food/data/json/products_02.json.gz",
             'products_json_03' => "https://challenges.coode.sh/food/data/json/products_03.json.gz",
             'products_json_04' => "https://challenges.coode.sh/food/data/json/products_04.json.gz",
             'products_json_05' => "https://challenges.coode.sh/food/data/json/products_05.json.gz",
             'products_json_06' => "https://challenges.coode.sh/food/data/json/products_06.json.gz",
             'products_json_07' => "https://challenges.coode.sh/food/data/json/products_07.json.gz",
             'products_json_08' => "https://challenges.coode.sh/food/data/json/products_08.json.gz",
-            'products_json_09' => "https://challenges.coode.sh/food/data/json/products_09.json.gz"*/
+            'products_json_09' => "https://challenges.coode.sh/food/data/json/products_09.json.gz"
         ];
 
 
         foreach ($arr_json_products as $list => $urlJson)
         {
-            $zd = gzopen($urlJson, "r");
+            $zd = @gzopen($urlJson, "r");
             $contents = gzread($zd, 999999);
             gzclose($zd);
 
@@ -59,10 +59,17 @@ class ReadProductsGz extends Controller
         for ($i = 0; $i < sizeof($arr_products_all_fields); $i++)
         {
 
-            $code = explode('"', $arr_products_all_fields[$i]->code);
+            if ($arr_products_all_fields[$i]->code[0] == '"')
+            {
+                $code = explode('"', $arr_products_all_fields[$i]->code);
+                $codeAux = $code[1];
+            } else
+            {
+                $codeAux = $arr_products_all_fields[$i]->code;
+            }
 
             array_push($arr_products, 
-                ['code' => $code[1]
+                ['code' => $codeAux
                 ,'status' => ''
                 ,'imported_t' => ''
                 ,'url' => $arr_products_all_fields[$i]->url
@@ -84,9 +91,11 @@ class ReadProductsGz extends Controller
                 ,'nutriscore_score' => $arr_products_all_fields[$i]->nutriscore_score
                 ,'nutriscore_grade' => $arr_products_all_fields[$i]->nutriscore_grade
                 ,'main_category' => $arr_products_all_fields[$i]->main_category
-                ,'image_url' => $arr_products_all_fields[$i]->image_url                
+                ,'image_url' => $arr_products_all_fields[$i]->image_url     
             ]);
         }
+
+        //dd($arr_products);
 
         return $arr_products;
 

@@ -27,20 +27,12 @@ class ProductsController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function getAllProducts()
     {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+        $products = $this->product::paginate(50);
+        return response()->json($products, 200);
+
     }
 
     /**
@@ -56,28 +48,37 @@ class ProductsController extends Controller
 
         return response()->json($product, 200);
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Products $products)
-    {
-        //
-    }
-
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Products $products)
+    public function update(Request $request, $code)
     {
-        //
+        //$url = "https://world.openfoodfacts.org/api/v2/product/737628064502.json";
+
+        $product = $this->product->where('code', ' ' . $code)->firstOrFail();
+        $product->update($request->all());
+
+        return response()->json($product, 200);
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Products $products)
+    public function destroy($code)
     {
-        //
+        $product = $this->product->where('code', ' ' . $code)->first();
+        
+        if (!$product) {
+            return response()->json(['error' => 'Nenhum produto encontrado!', 404]);
+        }
+
+        $product->status = 'trash';
+        $product->update();
+
+        return response()->json(['success' => 'Registro alterado com status "trash".', $product]);
+        
+
+
     }
 }

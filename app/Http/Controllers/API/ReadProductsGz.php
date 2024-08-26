@@ -58,8 +58,11 @@ class ReadProductsGz extends Controller
 
         for ($i = 0; $i < sizeof($arr_products_all_fields); $i++)
         {
+
+            $code = explode('"', $arr_products_all_fields[$i]->code);
+
             array_push($arr_products, 
-                ['code' => $arr_products_all_fields[$i]->code
+                ['code' => $code[1]
                 ,'status' => ''
                 ,'imported_t' => ''
                 ,'url' => $arr_products_all_fields[$i]->url

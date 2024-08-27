@@ -66,4 +66,13 @@ Desafio da Coodesh para criar uma API que obtém dados atualizados do Open Food 
 </ul>
 <br>
 
+><h3 align="center">Swagger</h3>
+<br>
+
+><b>/api/documentation</b><br>
+
+![Screenshot](https://github.com/Tarcisio-Souto/openff-api/blob/main/capturas/swagger.png)
+
+<br><br>
+
 ><p>TSS - Vitória/ES - 2024</p>

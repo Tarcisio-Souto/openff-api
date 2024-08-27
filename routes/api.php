@@ -11,7 +11,7 @@ Route::get('/', function () {
 
 Route::get('/read-files', [ReadProductsGz::class, 'GetFields'])->name('read-files');
 
-//Route::get('/', [ProductsController::class, 'index'])->name('check-validate');
+Route::get('/', [ProductsController::class, 'index'])->name('check-validate');
 Route::get('/products/{code}', [ProductsController::class, 'show']);
 Route::get('/products', [ProductsController::class, 'getAllProducts']);
 Route::delete('/products/{code}', [ProductsController::class, 'destroy']);

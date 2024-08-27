@@ -44,7 +44,7 @@ class UpdateProductsCron extends Command
             ->where('id', $products[$i]->id)
             ->update(array(
                  'id' => $products[$i]->id
-                ,'code' => $all_products[$i]['code']
+                ,'code' => ' ' . $all_products[$i]['code']
                 ,'status' => 'draft'
                 ,'imported_t' => date('Y-m-d H:i:s')
                 ,'url' => $all_products[$i]['url']

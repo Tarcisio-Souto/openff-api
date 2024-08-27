@@ -1,4 +1,4 @@
-<h3 align="center">Microsserviço 01 - Companias e Categorias</h3>
+<h3 align="center">Open Food Facts</h3>
 <br>
 
 <p>

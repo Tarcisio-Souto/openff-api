@@ -25,8 +25,8 @@ Desafio da Coodesh para criar uma API que obtém dados atualizados do Open Food 
 <b>Para customizar/desenvolver a aplicação é necessário ter os recursos abaixo após a clonagem:</b>
 <br><br>
 <ul>
-    <li><b>PHP 8.0</b></li>
-    <li><b>Laravel 8</b></li>
+    <li><b>PHP 8.2</b></li>
+    <li><b>Laravel 10</b></li>
     <li>
         <b>Editor de códigos (Visual Studio Code ou outro como o Android Studio)</b>
         <ul><br>
@@ -42,6 +42,7 @@ Desafio da Coodesh para criar uma API que obtém dados atualizados do Open Food 
     </li>
     <br>
 </ul>
+
 
 <p><br>
 

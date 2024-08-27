@@ -16,14 +16,14 @@ class ReadProductsGz extends Controller
         $arr_json_products = 
         [
             'products_json_01' => 'https://challenges.coode.sh/food/data/json/products_01.json.gz',
-            /*'products_json_02' => "https://challenges.coode.sh/food/data/json/products_02.json.gz",
+            'products_json_02' => "https://challenges.coode.sh/food/data/json/products_02.json.gz",
             'products_json_03' => "https://challenges.coode.sh/food/data/json/products_03.json.gz",
             'products_json_04' => "https://challenges.coode.sh/food/data/json/products_04.json.gz",
             'products_json_05' => "https://challenges.coode.sh/food/data/json/products_05.json.gz",
             'products_json_06' => "https://challenges.coode.sh/food/data/json/products_06.json.gz",
             'products_json_07' => "https://challenges.coode.sh/food/data/json/products_07.json.gz",
             'products_json_08' => "https://challenges.coode.sh/food/data/json/products_08.json.gz",
-            'products_json_09' => "https://challenges.coode.sh/food/data/json/products_09.json.gz"*/
+            'products_json_09' => "https://challenges.coode.sh/food/data/json/products_09.json.gz"
         ];
 
 

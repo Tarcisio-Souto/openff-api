@@ -39,7 +39,7 @@ class UpdateProductsCron extends Command
         $all_products = app(ReadProductsGz::class)->GetFields();
         $products = Products::all();
 
-        for ($i = 0; $i < 100; $i++)
+        for ($i = 0; $i < 900; $i++)
         {     
             DB::table('foodfacts')
             ->where('id', $products[$i]->id)

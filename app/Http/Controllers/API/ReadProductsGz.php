@@ -30,8 +30,8 @@ class ReadProductsGz extends Controller
         foreach ($arr_json_products as $list => $urlJson)
         {
             $zd = @gzopen($urlJson, "r");
-            $contents = gzread($zd, 999999);
-            gzclose($zd);
+            $contents = @gzread($zd, 999999);
+            @gzclose($zd);
 
             $result = json_encode($contents);
             $decode_result = json_decode($result, false);            

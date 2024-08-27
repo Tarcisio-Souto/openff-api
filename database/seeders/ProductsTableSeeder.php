@@ -23,12 +23,6 @@ class ProductsTableSeeder extends Seeder
 
         $all_products = app(ReadProductsGz::class)->GetFields();
 
-        //dd(count($all_products));
-
-        
-        //$enum = TypeOfStatusEnum::from('published');
-
-
         for ($i = 0; $i < sizeof($all_products); $i++)
         {
             $product = new Products();

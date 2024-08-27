@@ -13,6 +13,24 @@
         "version": "1.0.0"
     },
     "paths": {
+        "/api/": {
+            "get": {
+                "tags": [
+                    "Infos API"
+                ],
+                "summary": "Get infos",
+                "description": "Return infos API",
+                "operationId": "getInfos",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
         "/api/products": {
             "get": {
                 "tags": [
@@ -229,6 +247,10 @@
         }
     },
     "tags": [
+        {
+            "name": "Infos API",
+            "description": "Infos API"
+        },
         {
             "name": "Products",
             "description": "Products"

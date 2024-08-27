@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\Products;
 use Illuminate\Console\Command;
 use App\Http\Controllers\API\ReadProductsGz;
+use App\Models\Infos;
 use Illuminate\Support\Facades\DB;
 
 class UpdateProductsCron extends Command
@@ -38,7 +39,7 @@ class UpdateProductsCron extends Command
         $all_products = app(ReadProductsGz::class)->GetFields();
         $products = Products::all();
 
-        for ($i = 0; $i < 900; $i++)
+        for ($i = 0; $i < 100; $i++)
         {     
             DB::table('foodfacts')
             ->where('id', $products[$i]->id)
@@ -78,7 +79,19 @@ class UpdateProductsCron extends Command
     public function handle()
     {
         $this->info('Rotina automática iniciada em ' . now());
+
+        $start = microtime(true); 
+
         $this->updateData();
+
+        $exec_time = (microtime(true) - $start);
+        $use_mem = round(memory_get_usage() / 1024) . 'KB';
+
+        $infos = new Infos();
+        $infos->exec_time = $exec_time;
+        $infos->use_mem = $use_mem;
+        $infos->save();
+
         $this->info('Rotina executada com sucesso em ' . now());
     }
 }
